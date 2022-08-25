@@ -1,3 +1,8 @@
+
+// let botonAgregar= document.getElementsByClassName("button-add")
+// botonAgregar.onclick = () => {alert("Click")}
+
+
 class Producto{
     constructor (id, nombre, precio, foto){
         this.id= id;
@@ -17,8 +22,7 @@ class ElementoCarrito{
 
 const productos=[];
 const elementosCarrito=[];
-const contenedorProductos= 
-document.getElementsByClassName('page-content').getElementsByClassName('product-container');
+const contenedorProductos= document.getElementsByClassName('product-container');
 
 const rowContenedorProductos= contenedorProductos[0];
 const contenedorCarritoCompras= document.querySelector("#items");
@@ -33,20 +37,20 @@ dibujarCatalogoProductos();
 
 //pushear al array productos
 function cargarProductos() {
-    productos.push(new Producto(Shein, 'Blusa Naranja', 1.99, './Imgs/img/products/blusa_naranja.jpg'));
-    productos.push(new Producto(Shein, 'Blusa verde', 1256.96, './Imgs/img/products/blusa_verde.jpg'));
-    productos.push(new Producto(Zaful, 'Hoddie dragon', 4.23, './Imgs/img/products/hoodie_dragon.jpg'));
-    productos.push(new Producto(Zaful, 'Hoodie marrón', 80.98, './Imgs/img/products/hoodie_marron.jpg'));
-    productos.push(new Producto(Shein, 'Hoodie mostaza', 23.98, './Imgs/img/products/hoodie_mostaza.jpg'));
-    productos.push(new Producto(Zaful, 'Hoodie negra', 23.98, './Imgs/img/products/hoodie_negra'));
-    productos.push(new Producto(Shein, 'Jumper Gris', 23.98, './Imgs/img/products/jumper_gris.jpg'));
-    productos.push(new Producto(Zaful, 'Jumper marrón', 23.98, './Imgs/img/products/jumper_marron.jpg'));
+    productos.push(new Producto(1, 'Blusa Naranja', 1.99, './Imgs/img/products/blusa_naranja.jpg'));
+    productos.push(new Producto(2, 'Blusa verde', 1256.96, './Imgs/img/products/blusa_verde.jpg'));
+    productos.push(new Producto(3, 'Hoddie dragon', 4.23, './Imgs/img/products/hoodie_dragon.jpg'));
+    productos.push(new Producto(4, 'Hoodie marrón', 80.98, './Imgs/img/products/hoodie_marron.jpg'));
+    productos.push(new Producto(5, 'Hoodie mostaza', 23.98, './Imgs/img/products/hoodie_mostaza.jpg'));
+    productos.push(new Producto(6, 'Hoodie negra', 23.98, './Imgs/img/products/hoodie_negra'));
+    productos.push(new Producto(7, 'Jumper Gris', 23.98, './Imgs/img/products/jumper_gris.jpg'));
+    productos.push(new Producto(8, 'Jumper marrón', 23.98, './Imgs/img/products/jumper_marron.jpg'));
 }
 
 //pushear al array elementos carrito
 function cargarCarrito() {
     let elementoCarrito = new ElementoCarrito(
-        new Producto(Shein, 'Blusa Naranja', 1.99, './Imgs/img/products/blusa_naranja.jpg'),1);
+        new Producto(1, 'Blusa Naranja', 1.99, './Imgs/img/products/blusa_naranja.jpg'),1);
 
     elementosCarrito.push(elementoCarrito);
 }
@@ -59,7 +63,7 @@ function dibujarCarrito() {
         (elemento) => {
             renglonesCarrito+=`
                 <tr>
-                    <td>${elemento.producto.marca}</td>
+                    <td>${elemento.producto.id}</td>
                     <td>${elemento.producto.nombre}</td>
                     <td>${elemento.cantidad}</td>
                     <td>$ ${elemento.producto.precio}</td>
